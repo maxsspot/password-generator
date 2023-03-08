@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+		<title>Password Generator</title>
+	</head>
+	<body>
+		<h1>PASSWORD GENERATOR</h1>
+        <input id = "field" placeholder = "Generated password will be here..." readonly />
+        <br><button onclick = "newpass()" id = "new">Generate Password</button>
+        <br>
+        <br>
+        <br>
+        <hr>
+        <br>
+        <br>
+        <p><sub>These passwords can be hard to remember, so use a good password manager. <br><br>NOTE: Many browsers have built in password-managers, so save them there!</sub></p>
+        <style>* {
+    font-family:"Ubuntu", sans-serif;
+    outline:none;
+}
+
+body {
+	font-family:"Ubuntu", sans-serif;
+    text-align:center;
+    background-color:whitesmoke;
+}
+
+input {
+    background-color:transparent;
+    border:transparent;
+    border-bottom:black solid 1px;
+    height:50px;
+    width:275px;
+    text-align:center;
+}
+
+#new {
+    background-color:cyan;
+    border:cyan solid 1px;
+    width:275px;
+    height:40px;
+    border-radius:5px;
+    margin-top:5px;
+    cursor:pointer;
+    transition:all 0.5s;
+}
+
+#new:hover {
+    background-color:skyblue;
+}
+
+#new:active {
+    transform:scale(0.95);
+}
+
+p {
+    width:250px;
+    margin:auto;
+}
+
+hr {
+    width:300px;
+    background-color:black;
+    border:black solid 1px;
+    border-radius:50%;
+}       
+        </style>
+        <script>
+        function newpass () {
+    // Possible characters for password
+    const lettersLower = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+    const lettersUpper = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+    const numbers = ["0","1","2","3","4","5","6","7","8","9"];
+    const symbols = ["@","#", "%"]
+    
+    // Password field
+    var field = document.getElementById ("field");
+    
+    // Actual generation happens here
+    var i = 0;
+    while (i < 3) {
+        field.value = null;
+        field.value += lettersLower[Math.floor(Math.random() * lettersLower.length)] 
+        + lettersUpper[Math.floor(Math.random() * lettersUpper.length)] 
+        + numbers[Math.floor(Math.random() * numbers.length)]
+        + symbols[Math.floor(Math.random() * symbols.length)] 
+        + numbers[Math.floor(Math.random() * numbers.length)]
+        + lettersLower[Math.floor(Math.random() * lettersLower.length)] 
+        + lettersUpper[Math.floor(Math.random() * lettersUpper.length)] 
+        + symbols[Math.floor(Math.random() * symbols.length)]
+        + lettersUpper[Math.floor(Math.random() * lettersUpper.length)] 
+        + symbols[Math.floor(Math.random() * symbols.length)] 
+
+        i++;
+    }
+}
+        </script>
+    </body>
+</html>
